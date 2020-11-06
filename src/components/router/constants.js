@@ -2,6 +2,7 @@
 export const PATHS = {
     ACCOUNTS: '/accounts',
     STATEMENTS: '/statements',
+    VERIFICATIONS: '/verifications',
     HOME: '/',
 };
 

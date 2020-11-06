@@ -33,9 +33,10 @@ const Navbar = () => {
 
   const renderMenuItem = ({pathname}) => {
     if (pathname === "/") {
-      return (
-        menuItem("/accounts", "Go to Account")
-      )
+      return [
+        menuItem("/accounts", "Go to Account"),
+        menuItem("/verifications", "Go to BVN Verification")
+      ]
     }
     if (pathname === "/accounts") {
       return [
