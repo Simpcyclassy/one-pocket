@@ -1,9 +1,11 @@
 import { all } from 'redux-saga/effects';
 
-import verifications from './verifications';
+import accounts from './accounts';
+import monoLink from './monoLink';
 
 export default function* rootSaga() {
     yield all([
-        verifications.sagas(),
+        accounts.sagas(),
+        monoLink.sagas(),
     ]);
 }

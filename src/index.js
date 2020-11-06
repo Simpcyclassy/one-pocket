@@ -8,18 +8,12 @@ import * as serviceWorker from './serviceWorker';
 
 import router from './components/router';
 
-const { Routes } = router.components;
-
-const App = () =>{
-    return (
-        <Provider store={store}>
-            <Routes />
-        </Provider>
-    );
-}
+const { Routes: App } = router.components;
 
 ReactDOM.render(
-    <App />,
+    <Provider store={store}>
+        <App />
+    </Provider>,
     document.getElementById('root')
 );
 

@@ -1,12 +1,14 @@
 .center_button {
-    min-height: 100vh;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+}
+
+.auth_buttons {
+    text-align: center;
+    margin-top: 10%;
 }
 
 .mono_button {
-    text-align: center;
-    margin: 0 auto;
+    margin-right: 10px;
 }
-  

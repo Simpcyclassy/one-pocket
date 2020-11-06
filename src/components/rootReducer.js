@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import verifications from './verifications';
+import accounts from './accounts';
 import monoLink from './monoLink';
 
 export default combineReducers({
-  verifications: verifications.reducers,
+  accounts: accounts.reducers,
   monoConnect: monoLink.reducers,
 });

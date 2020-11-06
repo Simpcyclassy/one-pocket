@@ -1,14 +1,20 @@
 import React from 'react';
 import MonoConnect from '@mono.co/connect.js';
-import { Button } from 'antd';
-import { useDispatch } from 'react-redux';
+import { Button, message } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-import { signinSuccess } from '../actions';
+import { signinSuccess, authRequest } from '../actions';
 
 
 const MonoLink = () => {
   const dispatch = useDispatch();
   const { REACT_APP_PUBLIC_KEY } = process.env;
+  const { info } = useSelector(state => state.monoConnect);
+  const { code } = useSelector(state => state.monoConnect);
+  const value = {
+    code
+  }
 
   const monoConnect = React.useMemo(() => {
     const monoInstance = new MonoConnect(REACT_APP_PUBLIC_KEY, {
@@ -26,19 +32,39 @@ const MonoLink = () => {
     return monoInstance;
   }, [dispatch, REACT_APP_PUBLIC_KEY])
 
+  const handleAuth = () => {
+    dispatch(authRequest(value));
+
+    setTimeout(() => {
+      message.info(info);
+  }, 3000); 
+  };
+
   return (
-    <div className="center_button">
-      <Button
-        className="mono_button"
-        size="large"
-        type="primary"
-        shape="round"
-        onClick={() => monoConnect.open()}
-        >
-        Authenticate with Mono
-      </Button>
-    </div>
+    <>
+      <div className="center_button">
+        <div className="auth_buttons">
+          <Button
+            size="large"
+            type="primary"
+            shape="round"
+            className="mono_button"
+            onClick={() => monoConnect.open()}
+            >
+            Authenticate with Mono
+          </Button>
+          <Button
+            size="large"
+            type="primary"
+            shape="round"
+            onClick={() => handleAuth()}
+            >
+            Authenticate User Id
+          </Button>
+        </div>
+      </div>
+    </>
   )
 }
 
-export default MonoLink;
+export default withRouter(MonoLink);
