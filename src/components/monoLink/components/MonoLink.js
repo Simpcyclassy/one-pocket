@@ -2,7 +2,6 @@ import React from 'react';
 import MonoConnect from '@mono.co/connect.js';
 import { Button, message } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
 import { signinSuccess, authRequest } from '../actions';
@@ -38,22 +37,12 @@ const MonoLink = () => {
 
     setTimeout(() => {
       message.info(info);
-  }, 2000); 
+  }, 3000); 
   };
 
   return (
     <>
       <div className="center_button">
-        <Link to="/accounts">
-          <Button
-            className="account_button"
-            size="large"
-            shape="round"
-            type="primary"
-          >
-            Go to Accounts
-          </Button>
-        </Link>
         <div className="auth_buttons">
           <Button
             size="large"

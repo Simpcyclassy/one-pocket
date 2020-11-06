@@ -1,12 +1,10 @@
 .center_card {
-    min-width: 100%;
     text-align: center;
     margin-top: 70px;
   }
   
   .card_background {
-    min-height: 100vh;
+    min-height: 65vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }

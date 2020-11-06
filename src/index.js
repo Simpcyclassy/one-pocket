@@ -3,24 +3,17 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import 'antd/dist/antd.css';
 
-import reduxStore from './components/redux/store';
+import store from './store';
 import * as serviceWorker from './serviceWorker';
 
 import router from './components/router';
 
-const { store } = reduxStore;
-const { Routes } = router.components;
-
-const App = () =>{
-    return (
-        <Provider store={store}>
-            <Routes />
-        </Provider>
-    );
-}
+const { Routes: App } = router.components;
 
 ReactDOM.render(
-    <App />,
+    <Provider store={store}>
+        <App />
+    </Provider>,
     document.getElementById('root')
 );
 

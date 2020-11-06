@@ -1,10 +1,10 @@
 import { SIGNIN_SUCCESS, AUTH_FAILURE, AUTH_REQUEST, AUTH_SUCCESS } from './actionTypes';
 
 const code = localStorage.getItem('code');
-
+const id = localStorage.getItem('id');
 const initialState = {
-    code,
-    id: null,
+    code: code,
+    id: id,
     info: null
 };
 
@@ -14,7 +14,7 @@ const monoLinkReducers = (state = { ...initialState }, action) => {
             const { payload } = action;
             return {
                 ...state,
-                id: payload
+                code: payload
             };
         }
 

@@ -1,4 +1,5 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
+import { push } from 'connected-react-router';
 
 import { AUTH_REQUEST } from './actionTypes';
 import { authSuccess, authFailure } from './actions';
@@ -7,18 +8,19 @@ import { authService } from './services';
 
 function* userAuth(id) {
     const res = yield call(authService, id);
-    console.log(res);
+    console.log(res.id);
     
     try {
-        if (res) {
+        if (res.id) {
             yield put(authSuccess(res.id));
             localStorage.setItem('id', res.id);
+            yield put(push('/sites'));
         } else {
             yield put(authFailure(res.message));
         }
     } catch (error) {
         switch (error.status) {
-            case 500:
+            case 400:
                 yield put(authFailure(res.message));
                 break;
             default:
@@ -40,5 +42,5 @@ function* watchUserAuth({ payload }) {
 }
 
 export default function* actionWatcher() {
-    yield takeEvery(AUTH_REQUEST, watchUserAuth);
+    yield takeLatest(AUTH_REQUEST, watchUserAuth);
 }

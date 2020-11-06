@@ -2,6 +2,8 @@ import React from 'react';
 import { Layout } from 'antd';
 import { withRouter } from 'react-router-dom';
 
+import Navbar from './Navbar';
+
 const { Content } = Layout;
 
 class App extends React.Component {
@@ -9,6 +11,7 @@ class App extends React.Component {
         const { children } = this.props;
         return (
             <Layout>
+                <Navbar />
                 <Content>{children}</Content>
             </Layout>
         );

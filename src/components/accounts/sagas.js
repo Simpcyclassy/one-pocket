@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 
 import { ACCOUNT_REQUEST } from './actionTypes';
 import { accountSuccess, accountFailure } from './actions';
@@ -39,5 +39,5 @@ function* watchUserAccount({ payload }) {
 }
 
 export default function* actionWatcher() {
-    yield takeEvery(ACCOUNT_REQUEST, watchUserAccount);
+    yield takeLatest(ACCOUNT_REQUEST, watchUserAccount);
 }

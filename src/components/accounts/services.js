@@ -1,7 +1,9 @@
 import { BASE_URL } from './constants';
 
+const id = localStorage.getItem('id');
+
 export const accountService = async (code) => {
-    const ACCOUNT_ENDPOINT = `${BASE_URL}/accounts/5f89d974f163762a1f63bceb`;
+    const ACCOUNT_ENDPOINT = `${BASE_URL}accounts/${id}`;
 
     const parameters = {
         body: JSON.stringify(code),
