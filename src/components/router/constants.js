@@ -1,7 +1,8 @@
 /** @constant */
 export const PATHS = {
     ACCOUNTS: '/accounts',
-    VERIFICATIONS: '/',
+    VERIFICATIONS: '/verifications',
+    MONOCONNECT: '/'
 };
 
 /** @constant */

@@ -9,14 +9,21 @@ import { PATHS } from '../constants';
 import app from '../../app';
 import accounts from '../../accounts';
 import verifications from '../../verifications';
+import mononConnect from '../../monoLink'
 
-const { ACCOUNTS, VERIFICATIONS  } = PATHS;
+const { ACCOUNTS, VERIFICATIONS, MONOCONNECT  } = PATHS;
 const { App } = app.components;
 const Routes = () => (
     <Router history={history}>
         <ScrollToTop>
             <App>
                 <Switch>
+                    <Route
+                        path={MONOCONNECT}
+                        exact
+                        strict
+                        component={mononConnect.components.MonoLink}
+                    />
                     <Route
                         path={VERIFICATIONS}
                         exact

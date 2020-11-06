@@ -1,6 +1,6 @@
 
 export const bvnService = async (userData) => {
-    const BVN_ENDPOINT = '{{BASE}}/inquiry/api/sacctinq/bvn/wrapper';
+    const BVN_ENDPOINT = '{{BASE_URL}}/inquiry/api/sacctinq/bvn/wrapper';
 
     const parameters = {
         body: JSON.stringify(userData),
