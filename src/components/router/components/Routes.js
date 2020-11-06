@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 
 import ScrollToTop from './ScrollToTop';
-import NoMatch from './NoMatch';
+// import NoMatch from './NoMatch';
 import history from '../../history';
 import { PATHS } from '../constants';
 
@@ -36,7 +36,7 @@ const Routes = () => (
                         strict
                         component={accounts.components.Accounts}
                     />
-                    <Route component={NoMatch} />
+                    {/* <Route component={NoMatch} /> */}
                 </Switch>
             </App>
         </ScrollToTop>

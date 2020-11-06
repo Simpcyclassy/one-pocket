@@ -3,7 +3,7 @@ import { VERIFICATION_FAILURE, VERIFICATION_REQUEST, VERIFICATION_SUCCESS } from
 const initialState = {
 };
 
-export default (state = { ...initialState }, action) => {
+const verificationReducer = (state = { ...initialState }, action) => {
     switch (action.type) {
         case VERIFICATION_REQUEST: {
             return {
@@ -28,3 +28,5 @@ export default (state = { ...initialState }, action) => {
             return state;
     }
 };
+
+export default verificationReducer

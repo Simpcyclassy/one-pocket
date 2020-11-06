@@ -1,7 +1,9 @@
 import { SIGNIN_SUCCESS } from './actionTypes';
 
+const id = localStorage.getItem('code');
+
 const initialState = {
-    id: ''
+    code: id
 };
 
 const monoLinkReducers = (state = { ...initialState }, action) => {

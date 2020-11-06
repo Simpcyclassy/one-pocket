@@ -2,11 +2,13 @@ import React from 'react';
 import MonoConnect from '@mono.co/connect.js';
 import { Button } from 'antd';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import { signinSuccess } from '../actions';
 
 
-const MonoLink = () => {
+const MonoLink = ({history}) => {
   const dispatch = useDispatch();
   const { REACT_APP_PUBLIC_KEY } = process.env;
 
@@ -18,27 +20,43 @@ const MonoLink = () => {
         dispatch(signinSuccess(code));
         console.log(`Linked successfully: ${code}`)
         localStorage.setItem('code', code);
+        setTimeout(() => {
+          history.push('/accounts');
+      }, 2000);
       }
     })
 
     monoInstance.setup()
     
     return monoInstance;
-  }, [dispatch, REACT_APP_PUBLIC_KEY])
+  }, [dispatch, history, REACT_APP_PUBLIC_KEY])
 
   return (
-    <div className="center_button">
-      <Button
-        className="mono_button"
-        size="large"
-        type="primary"
-        shape="round"
-        onClick={() => monoConnect.open()}
+    <>
+      <div className="center_button">
+      <Link to="/accounts">
+        <Button
+          className="account_button"
+          size="large"
+          shape="round"
+          type="primary"
         >
-        Authenticate with Mono
-      </Button>
-    </div>
+          Go to Accounts
+        </Button>
+      </Link>
+
+        <Button
+          className="mono_button"
+          size="large"
+          type="primary"
+          shape="round"
+          onClick={() => monoConnect.open()}
+          >
+          Authenticate with Mono
+        </Button>
+      </div>
+    </>
   )
 }
 
-export default MonoLink;
+export default withRouter(MonoLink);

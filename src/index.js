@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import 'antd/dist/antd.css';
 
-import store from './store';
+import reduxStore from './components/redux/store';
 import * as serviceWorker from './serviceWorker';
 
 import router from './components/router';
 
+const { store } = reduxStore;
 const { Routes } = router.components;
 
 const App = () =>{
