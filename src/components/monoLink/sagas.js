@@ -7,10 +7,9 @@ import { authService } from './services';
 
 
 function* userAuth(id) {
-    const res = yield call(authService, id);
-    console.log(res.id);
     
     try {
+        const res = yield call(authService, id);
         if (res.id) {
             yield put(authSuccess(res.id));
             localStorage.setItem('id', res.id);
@@ -19,6 +18,7 @@ function* userAuth(id) {
             yield put(authFailure(res.message));
         }
     } catch (error) {
+        const res = yield call(authService, id);
         switch (error.status) {
             case 400:
                 yield put(authFailure(res.message));

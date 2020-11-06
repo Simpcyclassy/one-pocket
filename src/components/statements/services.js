@@ -2,8 +2,8 @@ import { BASE_URL } from './constants';
 
 const id = localStorage.getItem('id');
 
-export const accountService = async () => {
-    const ACCOUNT_ENDPOINT = `${BASE_URL}accounts/${id}`;
+export const statementService = async () => {
+    const ACCOUNT_ENDPOINT = `${BASE_URL}accounts/${id}/statement?period=last6months`;
 
     const parameters = {
         headers: {
