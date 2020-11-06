@@ -5,19 +5,21 @@ import { accountSuccess, accountFailure } from './actions';
 import { accountService } from './services';
 
 
-function* userAccount(code) {
-    const res = yield call(accountService, code);
-    console.log(res);
-    
+function* userAccount() {    
     try {
-        if (res) {
+        const res = yield call(accountService);
+        localStorage.setItem('account', JSON.stringify(res.account));
+
+        if (res.account) {
             yield put(accountSuccess(res.account));
+
         } else {
             yield put(accountFailure(res.message));
         }
     } catch (error) {
+        const res = yield call(accountService);
         switch (error.status) {
-            case 500:
+            case 401:
                 yield put(accountFailure(res.message));
                 break;
             default:
@@ -34,8 +36,8 @@ function* userAccount(code) {
  * @return {void}
  */
 
-function* watchUserAccount({ payload }) {
-    yield call(userAccount, payload);
+function* watchUserAccount() {
+    yield call(userAccount);
 }
 
 export default function* actionWatcher() {

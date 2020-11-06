@@ -8,9 +8,10 @@ import { PATHS } from '../constants';
 
 import accounts from '../../accounts';
 import app from '../../app';
-import mononConnect from '../../monoLink'
+import mononConnect from '../../monoLink';
+import statements from '../../statements'
 
-const { ACCOUNTS, HOME  } = PATHS;
+const { ACCOUNTS, HOME, STATEMENTS } = PATHS;
 const { App } = app.components;
 
 const Routes = () => (
@@ -29,6 +30,12 @@ const Routes = () => (
                         exact
                         strict
                         component={accounts.components.Accounts}
+                    />
+                    <Route
+                        path={STATEMENTS}
+                        exact
+                        strict
+                        component={statements.components.Statements}
                     />
                     <Route component={NoMatch} />
                 </Switch>

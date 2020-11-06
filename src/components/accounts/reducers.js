@@ -1,12 +1,14 @@
 import { ACCOUNT_FAILURE, ACCOUNT_REQUEST, ACCOUNT_SUCCESS } from './actionTypes';
 
+const account = JSON.parse(localStorage.getItem('account'))
+
 const initialState = {
-    name: '',
-    accountNumber: null,
-    currency: '',
-    balance: null,
-    type: '',
-    institutionName: '',
+    name: account.name,
+    accountNumber: account.accountNumber,
+    currency: account.currency,
+    balance: account.balance,
+    type: account.type,
+    institutionName: account.institution.name,
     message: null
 };
 

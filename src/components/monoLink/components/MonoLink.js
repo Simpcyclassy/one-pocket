@@ -2,7 +2,6 @@ import React from 'react';
 import MonoConnect from '@mono.co/connect.js';
 import { Button, message } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 import { signinSuccess, authRequest } from '../actions';
 
@@ -67,4 +66,4 @@ const MonoLink = () => {
   )
 }
 
-export default withRouter(MonoLink);
+export default MonoLink;
