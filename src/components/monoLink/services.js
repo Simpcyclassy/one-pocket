@@ -1,7 +1,7 @@
 import { BASE_URL } from './constants';
 
-export const accountService = async (code) => {
-    const ACCOUNT_ENDPOINT = `${BASE_URL}/accounts/5f89d974f163762a1f63bceb`;
+export const authService = async (code) => {
+    const ACCOUNT_ENDPOINT = `${BASE_URL}/account/auth`;
 
     const parameters = {
         body: JSON.stringify(code),
@@ -9,7 +9,7 @@ export const accountService = async (code) => {
             'mono-sec-key': process.env.REACT_APP_SECRET,
             'Content-Type': 'application/json',
         },
-        method: 'GET',
+        method: 'POST',
         mode: 'cors',
     };
     const response = await fetch(ACCOUNT_ENDPOINT, parameters);

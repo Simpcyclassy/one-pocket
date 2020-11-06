@@ -16,7 +16,7 @@ const Accounts = () => {
   } = useSelector(state => state.accounts);
   const { code } = useSelector(state => state.monoConnect);
   const value = {
-    "code": code
+    code
   }
 
   const handleSubmit = () => {

@@ -5,12 +5,16 @@
     justify-content: center;
 }
 
-.mono_button {
+.auth_buttons {
     text-align: center;
     margin: 0 auto;
     margin-bottom: 40vh;
 }
-
+.mono_button {
+    text-align: center;
+    margin: 0 auto;
+    margin-right: 10px;
+}
 .account_button {
     float: right;
     margin-right: 20px;
