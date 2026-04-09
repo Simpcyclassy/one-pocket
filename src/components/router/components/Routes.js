@@ -10,8 +10,9 @@ import accounts from '../../accounts';
 import app from '../../app';
 import mononConnect from '../../monoLink';
 import statements from '../../statements'
+import verifications from '../../verifications'
 
-const { ACCOUNTS, HOME, STATEMENTS } = PATHS;
+const { ACCOUNTS, HOME, STATEMENTS, VERIFICATIONS } = PATHS;
 const { App } = app.components;
 
 const Routes = () => (
@@ -36,6 +37,12 @@ const Routes = () => (
                         exact
                         strict
                         component={statements.components.Statements}
+                    />
+                    <Route
+                        path={VERIFICATIONS}
+                        exact
+                        strict
+                        component={verifications.components.Verifications}
                     />
                     <Route component={NoMatch} />
                 </Switch>

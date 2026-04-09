@@ -1,6 +1,12 @@
 import { VERIFICATION_FAILURE, VERIFICATION_REQUEST, VERIFICATION_SUCCESS } from './actionTypes';
 
 const initialState = {
+    error: null,
+    isLoading: false,
+    description: '',
+    verified: '',
+    status: "",
+    referenceNo: ""
 };
 
 const verificationReducer = (state = { ...initialState }, action) => {
@@ -8,19 +14,25 @@ const verificationReducer = (state = { ...initialState }, action) => {
         case VERIFICATION_REQUEST: {
             return {
                 ...initialState,
+                isLoading: true,
             };
         }
 
         case VERIFICATION_SUCCESS: {
             return {
                 ...state,
+                isLoading: false,
             };
         }
 
         case VERIFICATION_FAILURE: {
+            const { payload } = action;
 
             return {
                 ...state,
+                isLoading: false,
+                isLoggedIn: false,
+                error: payload,
             };
         }
 

@@ -1,10 +1,12 @@
 
 export const bvnService = async (userData) => {
-    const BVN_ENDPOINT = '{{BASE_URL}}/inquiry/api/sacctinq/bvn/wrapper';
+    const BVN_ENDPOINT = 'https://app.verified.ng/sfx-verify/v2/frsc';
 
     const parameters = {
         body: JSON.stringify(userData),
         headers: {
+            'api-key': process.env.REACT_APP_API_KEY,
+            'userid': process.env.REACT_APP_USER_ID,
             'Content-Type': 'application/json',
         },
         method: 'POST',
